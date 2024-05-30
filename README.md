@@ -1,6 +1,6 @@
-# Laravel 8 遷移過程的版本控制
+# Laravel 11 遷移過程的版本控制
 
-引入 dragon-code 的 laravel-migration-actions 套件來擴增遷移過程的版本控制，可以讓你的團隊輕易修改與共享應用程式的可操作架構。
+引入 dragon-code 的 laravel-deploy-operations 套件來擴增遷移過程的版本控制，可以讓你的團隊輕易修改與共享應用程式的可操作架構。
 
 ## 使用方式
 - 把整個專案複製一份到你的電腦裡，這裡指的「內容」不是只有檔案，而是指所有整個專案的歷史紀錄、分支、標籤等內容都會複製一份下來。
@@ -16,17 +16,17 @@ $ composer install
 ```sh
 $ php artisan key:generate
 ```
-- 執行 __Artisan__ 指令的 __migrate:actions__ 來執行所有遷移過程動作。
+- 執行 __Artisan__ 指令的 __operations__ 來執行所有遷移過程操作。
 ```sh
-$ php artisan migrate:actions
+$ php artisan operations
 ```
-- 執行 __Artisan__ 指令的 __migrate__ 來執行所有未完成的遷移，並執行資料庫填充（如果要測試的話）。
+- 執行 __Artisan__ 指令的 __operations:rollback__ 來還原最後的遷移操作。
 ```sh
-$ php artisan migrate --seed
+$ php artisan operations:rollback
 ```
 
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/byGcc0Z.png)
-> 每個遷移過程動作的檔名會包含時間戳，可以讓 Laravel 確定遷移過程的順序
+![](https://i.imgur.com/w129Ukg.png)
+> 每個遷移過程動作的檔名會包含時間戳，可以確定遷移過程的順序
